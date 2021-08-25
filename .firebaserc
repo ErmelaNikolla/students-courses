@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "students-lectors": {
+      "hosting": {
+        "angular-students-lectors": [
+          "students-lectors"
+        ]
+      }
+    }
+  }
+}
