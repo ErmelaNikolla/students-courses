@@ -1,16 +1,94 @@
-<mat-toolbar color="black" class="navbar"> 
-    <div>My application</div>  
+<mat-toolbar color="black" class="navbar" style="background-color: #97bcdc;"> 
     <div>
-        <span>Choose Courses</span> 
-        <span>Create Curses</span> 
-        <span>My Courses</span>
+     <a class="nav-link d-inline-flex" routerLink='home' routerLinkActive="active"> My application</a>
+    </div>  
+    <div *ngIf="appComponent.authUser">
+        <a class="nav-link d-inline-flex" routerLink='choose-courses' routerLinkActive="active">Choose Courses</a>
+        <ng-container *ngIf="appComponent.authUser.role !== 'User'">
+            <a class="nav-link d-inline-flex" routerLink='create-courses' routerLinkActive="active">Create Curses</a>
+        </ng-container>
+        <a class="nav-link d-inline-flex" routerLink='my-courses' routerLinkActive="active">My Courses</a>
     </div>
    
         
         <span class="nav-tool-items">
-          <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
-          <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+            
+        <ng-container *ngIf="!appComponent.authUser">
+            <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+            <a mat-button mat-raised-button routerLink="registration" routerLinkActive="active">Register</a>
+        </ng-container>
+
+        <ng-container *ngIf="appComponent.authUser">
+            <form class="example-form" #addForm="ngForm" (ngSubmit)="appComponent.signOut()">
+                <button mat-stroked-button color="accent" class="btn-block">Log Out</button>
+            </form>
+        </ng-container>
         </span>
       
 
 </mat-toolbar>
+<!-- <div class="wrapper">
+   Sidebar  
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Bootstrap Sidebar</h3>
+          <strong>BS</strong>
+      </div>
+
+      <ul class="list-unstyled components">
+          <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-home"></i>
+                  Home
+              </a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a href="#">Home 1</a>
+                  </li>
+                  <li>
+                      <a href="#">Home 2</a>
+                  </li>
+                  <li>
+                      <a href="#">Home 3</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">
+                  <i class="fas fa-briefcase"></i>
+                  About
+              </a>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-copy"></i>
+                  Pages
+              </a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                      <a href="#">Page 1</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 2</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 3</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+
+  </nav>
+
+  Page Content 
+  <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+              <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <i class="fas fa-align-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button>
+          </div>
+      </nav>
+  </div>
+</div> -->

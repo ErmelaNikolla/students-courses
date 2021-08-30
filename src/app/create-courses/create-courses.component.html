@@ -1,154 +1,32 @@
-<!-- <div class="container">
-    <h2>Create Courses</h2>
-    <form>
-        <div class="form-group">
-            <label for = "name">Course  Name</label>
-            <input id="name" name="name" class="form-control" placeholder = "Name" />
-        </div>
-        <div class="form-check form-group">
-            <input class="form-check-input" type ="checkbox" id="agree" name="agree">
-            <label class="form-check-lable" for= "agree">Agree</label>
-        </div>
-        <div class="form-group">
-            <label for="credit"></label>
-        </div>
-        <button class="btn btn-primary">Save</button>
-    </form>
-</div> -->
-<!-- <div class="container">
-    <h2>Create Courses</h2>
-    <form #form="ngForm">
-        <div class="form-group">
-            <label for="name" ><br> Course Name</label>
-            <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
-        </div>
+<form class="login-wrapper form-container" fxLayout="row" fxLayoutAlign="center center" #createCourese="ngForm" (ngSubmit)="createcourses(createCourese)">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Create Course</mat-card-title>
+    </mat-card-header>
 
-        <div class="form-group">
-            <label for="credit">Lector</label>
-            <input type="text" ngModel name="lector" class="form-control" id="lector" placeholder="lector" required>
-        </div>
+    <mat-card-content>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter name"  [formControl]="name">
+      </div>
 
-        <div class="form-group">
-            <label for="name">Course Credit</label>
-            
-            <select class="form-control" name="credit" id="credit" ngModel required>
-                <option value= 0>1</option>
-                <option value= 1>2</option>
-                <option value=2>3</option>
-                <option value=3>4</option>
-                <option value=4>5</option>
-                <option value=5>6</option>
-                <option value=6>7</option>
-                <option value=7>8</option>
-                <option value=8>9</option>
-                <option value=9>10</option>
-            </select>
-        </div>
+      <div class="form-group">
+        <select class="form-control" [formControl]="credit">
+          <option>5</option>
+          <option>10</option>
+          <option>12</option>
+          <option>15</option>
+        </select>
+      </div>
 
-        <div class="form-group">
-            <label for ="description">Description</label>
-            <textarea id="description" name="description" ngModel class="form-control"
-                        rows="3"></textarea>
-        </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Lector"  [formControl]="lector">
+      </div>
 
-        <div class="modal-footer">
-            <button type="button" id="add-course-form" class="btn btn-secondary" data-dismiss="modal" ng-show="!inactive">Close</button>
-            <button  type="submit" class="btn btn-primary" >Save changes</button>
-        </div>
-    </form>
-</div>
+    </mat-card-content>
 
-
-{{form}} -->
-<!-- <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
-  <div class="modal-footer">
-    <button  mat-raised-button disabled id="add-course-form" class="btn btn-secondary" data-dismiss="modal" ng-show="!inactive">Close</button>&nbsp;
-    <button mat-flat-button color="primary" >Save changes</button>
-</div> -->
-
-<form class="form-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Create Courses</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input matinput="" placeholder="Course Name">
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input matinput="" placeholder="Lector Name">
-            </mat-form-field>
-          </div>
-        </div>
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Credit</mat-label>
-            <mat-select  multiple>
-              <mat-select-trigger>
-               
-                
-              </mat-select-trigger>
-              <mat-option >
-                <option value= 0>1</option>
-                <option value= 1>2</option>
-                <option value=2>3</option>
-                <option value=3>4</option>
-                <option value=4>5</option>
-                <option value=5>6</option>
-                <option value=6>7</option>
-                <option value=7>8</option>
-                <option value=8>9</option>
-                <option value=9>10</option>
-              </mat-option>
-            </mat-select>
-        </mat-form-field> -->
-        
-<mat-form-field appearance="fill">
-    <h2>Credit</h2>
-  <mat-label>Choose an option</mat-label>
-  <select>
-    <option value="option1">1</option>
-    <option value="option2">2 </option>
-    <option value="option3">3</option>
-    <option value="option4">4</option>
-    <option value="option5">5</option>
-    <option value="option6">6</option>
-    <option value="option7">7</option>
-    <option value="option8">8</option>
-    <option value="option9">9</option>
-    <option value="option10">10</option>
-  </select>
-</mat-form-field>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <mat-form-field class="full-width">
-              <textarea matinput="" placeholder="Description"></textarea>
-            </mat-form-field>
-          </div>
-        </div>
-        
-      </mat-card-content>
-      <mat-card-actions>
-        <button  mat-raised-button disabled ng-show="!inactive">Close</button>&nbsp;
-        <button mat-flat-button color="primary" >Save changes</button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
+    <mat-card-actions>
+      <a class="btn btn-secondary" href="#">Exit</a>&nbsp;
+      <button mat-flat-button color="primary" class="btn btn-primary">Save changes</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

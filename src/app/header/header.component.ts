@@ -10,15 +10,18 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-// @NgModule({
-//   imports [material],
-//   exports [material]
-// })
 export class HeaderComponent implements OnInit {
-
-  constructor() {}
+  appComponent: AppComponent;
+  isUserLoggedIn: boolean = false;
+  constructor(
+    appComponent:AppComponent
+  ) {
+    this.appComponent = appComponent;
+  }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem("token"));
+    this.isUserLoggedIn = localStorage.getItem("token") != undefined;
   }
 
 }
